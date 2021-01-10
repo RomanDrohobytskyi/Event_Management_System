@@ -59,3 +59,16 @@ CREATE TABLE IF NOT EXISTS user_role (
   CONSTRAINT creator_id_fk FOREIGN KEY (creator_id) REFERENCES user (id),
   CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES user (id)
   );
+
+-- -----------------------------------------------------
+-- Many to many - user - event tables
+-- -----------------------------------------------------
+
+CREATE TABLE event_participants (
+  events_id bigint(20) NOT NULL,
+  participants_id bigint(20) NOT NULL,
+  PRIMARY KEY (events_id, participants_id),
+  KEY participants_id_fk (participants_id),
+CONSTRAINT participants_id_fk FOREIGN KEY (participants_id) REFERENCES user (id),
+CONSTRAINT events_id_fk FOREIGN KEY (events_id) REFERENCES event (id)
+);
