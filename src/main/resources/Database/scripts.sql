@@ -30,3 +30,32 @@ CREATE TABLE IF NOT EXISTS user_role (
   id BIGINT(20) NOT NULL,
   role VARCHAR(34) NOT NULL,
   PRIMARY KEY (`id`));
+  -- -----------------------------------------------------
+-- default values for role table
+-- -----------------------------------------------------
+  insert into role (role)
+  values ('ADMIN');
+
+  insert into role (role)
+  values ('USER');
+
+-- -----------------------------------------------------
+-- Table 'event'
+-- -----------------------------------------------------
+  CREATE TABLE event (
+    id bigint(20) NOT NULL,
+    creation_date datetime(6) DEFAULT NULL,
+    date datetime(6) DEFAULT NULL,
+    day_of_week varchar(255) DEFAULT NULL,
+    starts_from time DEFAULT NULL,
+    modification_date datetime(6) DEFAULT NULL,
+    title varchar(255) DEFAULT NULL,
+    end_to time DEFAULT NULL,
+    user_id bigint(20) DEFAULT NULL,
+    creator_id bigint(20) DEFAULT NULL,
+    PRIMARY KEY (id),
+    KEY user_id_fk (user_id),
+  KEY creator_id_fk (creator_id),
+  CONSTRAINT creator_id_fk FOREIGN KEY (creator_id) REFERENCES user (id),
+  CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES user (id)
+  );
