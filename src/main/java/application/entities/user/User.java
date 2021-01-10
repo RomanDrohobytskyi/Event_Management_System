@@ -1,5 +1,6 @@
 package application.entities.user;
 
+import application.entities.event.Event;
 import application.roles.Role;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -42,6 +43,9 @@ public class User implements UserDetails{
     @Enumerated(EnumType.STRING)
     @NotNull
     private Set<Role> roles;
+    @ManyToMany(mappedBy = "participants")
+    @NotNull
+    private Set<Event> events;
 
     public boolean isAdmin(){
         return getRoles().contains(Role.ADMIN);
@@ -54,17 +58,17 @@ public class User implements UserDetails{
 
     @Override
     public boolean isAccountNonExpired() {
-        throw new UnsupportedOperationException();
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        throw new UnsupportedOperationException();
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        throw new UnsupportedOperationException();
+        return true;
     }
 
     @Override
@@ -73,7 +77,7 @@ public class User implements UserDetails{
     }
 
     public String getNames(){
-        return firstName + " " +lastName;
+        return firstName + " " + lastName;
     }
 
     @Override

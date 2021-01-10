@@ -20,7 +20,7 @@ public class MailSenderService {
         mailMessage.setTo(mailTo);
         mailMessage.setSubject(subject);
         mailMessage.setText(message);
-        mailSender.send(mailMessage);
+        //mailSender.send(mailMessage);
     }
 
 }

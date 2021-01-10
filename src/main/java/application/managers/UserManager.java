@@ -7,6 +7,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 public class UserManager {
 
+    public boolean isLoggedUserAdmin(){
+        return getLoggedInUser() != null && getLoggedInUser().isAdmin();
+    }
+
     @Transactional
     public User getLoggedInUser(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -14,9 +18,5 @@ public class UserManager {
             return null;
         }
         return (User) authentication.getPrincipal();
-    }
-
-    public boolean isLoggedUserAdmin(){
-        return getLoggedInUser() != null && getLoggedInUser().isAdmin();
     }
 }
