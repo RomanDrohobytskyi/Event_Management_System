@@ -34,6 +34,12 @@
         </div>
     </div>
 
+    <div class="parallax big-img-login-1 w3-display-container w3-opacity-min" id="home">
+        <div class="w3-display-middle" style="white-space:nowrap;">
+            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Registration</span>
+        </div>
+    </div>
+
     <div class="w3-content w3-container w3-padding-32" id="login">
         <div class="w3-center w3-row">
             <form method="get" action="/loginError">
@@ -42,9 +48,9 @@
 
             <form method="post" action="/login">
                 <p class="w3-center">Email: </p>
-                <input id="login" name="username" value="" type="email" class="login-input"/>
+                <input id="login" name="username" value="root@root.root" type="email" class="login-input"/>
                 <p class="w3-center">Password: </p>
-                <input id="password" name="password" value="" type="password" class="login-input"/>
+                <input id="password" name="password" value="root" type="password" class="login-input"/>
                 <br>
                 <button type="submit" class="btn btn1 w3-button w3-padding-large">Sign In</button>
                 <input type="hidden" name="_csrf" value="${_csrf.token}" />
@@ -59,6 +65,8 @@
             </h5>
         </div>
     </div>
+
+    <div class="parallax big-img-login-1 w3-display-container w3-opacity-min" id="home"></div>
 
     <footer class="w3-center w3-black w3-padding-32 w3-opacity w3-hover-opacity-off">
         <a href="#home" class="" style="text-decoration: none; color: #ABADAA;"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>

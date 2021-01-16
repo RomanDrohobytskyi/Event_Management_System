@@ -136,15 +136,25 @@ public class EventService {
 
     public void addEventsAndMenu(Model model) {
         Map<String, List<Event>> events = getSortedEventsForFullWeekFromTodayWithDay();
+        List<Event> availableEvents = filterEventsAvailableToRegistration(getEventsForWeekFromToday(), userManager.getLoggedInUser());
         model.addAttribute("events", events);
+        model.addAttribute("availableEvents", availableEvents);
+        model.addAttribute("user", userManager.getLoggedInUser());
+        model.addAttribute("isUserAdmin", userManager.isLoggedUserAdmin());
         model.addAttribute("isLoggedUserIsAdmin", userManager.isLoggedUserAdmin());
+    }
+
+    private List<Event> filterEventsAvailableToRegistration(List<Event> events, User user){
+        events.removeIf(event -> user.getEvents().contains(event));
+        return events;
     }
 
     public void deleteEvent(Event event) {
         eventRepository.delete(event);
     }
 
-    public void registerUserForEvent(User user, Event event) {
+    public void registerUserForEvent(Event event) {
+        User user = userManager.getLoggedInUser();
         user.getEvents().add(event);
         userService.saveUser(user);
     }

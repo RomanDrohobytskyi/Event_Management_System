@@ -43,8 +43,11 @@ public class User implements UserDetails{
     @Enumerated(EnumType.STRING)
     @NotNull
     private Set<Role> roles;
-    @ManyToMany(mappedBy = "participants")
-    @NotNull
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "event_participants",
+            joinColumns = @JoinColumn(name = "participants_id"),
+            inverseJoinColumns = @JoinColumn(name = "events_id"))
     private Set<Event> events;
 
     public boolean isAdmin(){

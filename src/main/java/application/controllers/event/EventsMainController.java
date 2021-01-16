@@ -26,13 +26,12 @@ public class EventsMainController {
         return "events";
     }
 
-    @GetMapping("/register/{user}/{event}")
-    public String registerForEvent(@PathVariable User user,
-                                   @PathVariable Event event,
+    @PostMapping("/register")
+    public String registerForEvent(@RequestParam Event event,
                                    Model model) {
-        eventService.registerUserForEvent(user, event);
+        eventService.registerUserForEvent(event);
         eventService.addEventsAndMenu(model);
-        return "events";
+        return "redirect:/events";
     }
 
     @PostMapping("/add")

@@ -65,6 +65,7 @@
                 <p class="w3-center">Confirm password: </p>
                 <input class="registration-input" type="password" name="passwordConfirm"/>
                 <input type="hidden" name="_csrf" value="${_csrf.token}" />
+                <br>
                 <button type="submit" class="btn btn1 w3-button">Create</button>
                 <h5>Already registered? <a href="/login"><b>Sing In!</b></a></h5>
             </form>

@@ -41,6 +41,6 @@ public class Event {
     private Date modificationDate;
     @ManyToOne
     private User creator;
-    @ManyToMany
+    @ManyToMany(mappedBy = "events", fetch = FetchType.EAGER)
     private Set<User> participants;
 }
