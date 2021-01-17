@@ -1,0 +1,72 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+}
+
+.gradient-blue{
+    background: linear-gradient(to bottom right, blue, lightblue);
+    width: 100%;
+    height: 400px;
+}
+
+.gradient-green{
+    background: linear-gradient(to bottom right, darkolivegreen, palegreen);
+    width: 100%;
+    height: 400px;
+}
+
+.gradient-black{
+    background: linear-gradient(to bottom right, black, white);
+    width: 100%;
+    height: 400px;
+}
+
+.gradient-white{
+    background: linear-gradient(to top left, black, white);
+    width: 100%;
+    height: 400px;
+}
+
+.parallax {
+    background: no-repeat fixed center;
+    background-size: cover;
+}
+
+.big-img-greeting-1 {
+    background-image:
+        linear-gradient(to bottom, rgb(255, 255, 255), rgba(0, 0, 0, 0) 10%),
+        url("/static/images/webWithRainDrops.jpg");
+    min-height: 80%;
+    background-size: cover;
+}
+
+.big-img-greeting-small {
+    background-image:
+        linear-gradient(to bottom, rgb(255, 255, 255), rgba(0, 0, 0, 0) 10%),
+        url("/static/images/webWithRainDrops.jpg");
+    min-height: 30%;
+    background-size: cover;
+}
+
+.big-img-login-1 {
+    background-image: url("/static/images/cyberLock.png");
+    min-height: 400px;
+}
+
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+a:hover {
+    color: cornflowerblue;
+}
+
+a:active {
+    color: seagreen;
+}
+
+.default-margin{
+    margin: 10px;
+}
